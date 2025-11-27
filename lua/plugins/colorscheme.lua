@@ -1,11 +1,16 @@
-return { 
+return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    transparent = true,
-    style = "storm",
-    terminal_colors = true,
-    opts = {},
+    lazy = false,          -- load immediately
+    priority = 1000,       
+    opts = {
+      transparent = true,
+      style = "night",
+      terminal_colors = true,
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      vim.cmd("colorscheme tokyonight")
+    end,
   }
 }
